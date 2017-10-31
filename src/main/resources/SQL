@@ -1,0 +1,73 @@
+User table:
+ create table user(
+ UserName varchar (15) not null,
+ UserId INT auto_increment,
+ CreateDateTime varchar (30),
+ Status int unsigned,
+ Password varchar (200),
+ CellPhone varchar (13),
+ Sex varchar (4),
+ primary key(UserId)
+);
+
+Project Table:
+create table project(
+ProjectId int auto_increment,
+ProjectName varchar(25) not null,
+CreateDateTime varchar(30),
+Status int unsigned,
+Description varchar(250),
+ImageName varchar(50),
+Location varchar(25),
+DeadDate varchar(30),
+TotalShares int,
+Price float,
+Comment varchar(50),
+primary key(ProjectId)
+);
+����price��Stringʡȥ��ת�ַ���ʽ�Ĺ���
+alter table project modify price varchar(10);
+
+用户订单表：
+ create table orders(
+ OrderId int auto_increment,
+ CreateDateTime varchar(30),
+ ProjectId int,
+ TotalAmount varchar(20),
+ Status int unsigned,
+ Comment varchar(250),
+ primary key (OrderId)
+ );
+ 改一下表结构
+ alter table orders modify TotalAmount float;
+ alter table orders add column shares int;
+  alter table orders add column userid int;
+  
+交易流水表
+  create table JournalTractional(
+JournalTractionalId int auto_increment,
+WIDout_trade_no varchar(20),
+WIDtotal_amount varchar(20),
+WIDsubject varchar(50),
+WIDbody varchar(50),
+DateTime varchar(30),
+Status int,
+Comment varchar(50),
+primary key (JournalTractionalId)
+);
+
+alter table JournalTractional add column out_trade_no varchar(50);
+alter table JournalTractional add column trade_no varchar(50);
+alter table JournalTractional add column trade_status varchar(8);
+
+
+Audit table:
+ create table audit (
+ auditId int auto_increment,
+ userId int,
+ projectId int,
+ auditName varchar(50),
+ status int,
+ createDateTime varchar(50),
+ comment varchar(50),
+ primary key(auditId));
