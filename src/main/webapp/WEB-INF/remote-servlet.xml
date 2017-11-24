@@ -38,13 +38,4 @@
 		<property name="service" ref="orderserviceimpl" />
 		<property name="serviceInterface" value="com.crowdfunding.sjtu.service.IOrderService" />
 	</bean>
-
-	<!-- 可以配置多个HessianServiceExporter代理Bean -->
-	<bean id="IHSTtest" class="com.crowdfunding.sjtu.service.IHSTestImpl" />
-	<bean name="/test"
-		class="org.springframework.remoting.caucho.HessianServiceExporter">
-		<property name="service" ref="IHSTtest" />
-		<property name="serviceInterface" value="com.crowdfunding.sjtu.service.IHSTest" />
-	</bean>
-
 </beans>
